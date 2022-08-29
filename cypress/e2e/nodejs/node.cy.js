@@ -18,11 +18,18 @@ describe('Teste do cypress.config.js', () => {
             
     })
 
-    it.only('conta o total de arquivos da pasta NODEJS', () => {
+    it('conta o total de arquivos da pasta NODEJS', () => {
         cy.task('lerPasta', 'cypress/e2e/nodejs')
             .then(totalArquivos => {
                 cy.log(`Quantidade de arquivos: ${totalArquivos}`)
             })
             
+    })
+
+    it('le variavel de ambiente do terminal', () => {
+        cy.log(Cypress.env('pedro'))
+            .then(retorno => {
+                cy.log(retorno)
+            })
     })
 })

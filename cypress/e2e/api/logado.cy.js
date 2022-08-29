@@ -24,6 +24,14 @@ describe('API - Posts', () => {
 
         cy.login(Cypress.env('email'), Cypress.env('password'))
     })
+
+    after(() => {
+        cy.log('Limpando os cookies')
+
+        Cypress.Cookies.defaults({
+            preserve: []
+        })
+    })
     it('valida todos os posts', () => {
         
         cy.request({
