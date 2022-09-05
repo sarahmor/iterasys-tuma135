@@ -4,29 +4,29 @@ describe('home page', () => {
         cy.visit('/')
     })
 
-    it('valida o título e o subtítulo da aplicação', () => {
+    it('valida o título e o subtítulo da aplicação', { tags: 'smoke' }, () => {
         
         cy.get('[data-test=landing-title]')
             .should('exist')
             .and('have.class', 'x-large')
-        
+
         cy.contains('portfolio')
             .should('exist')
 
         cy.contains('.x-large', 'QAs')
             .should('exist')
     })
-
+    
     it('seleciona varios elementos', () => {
         cy.get('a')
             .eq(5)
             .should('have.text', 'Cadastrar')
 
-        cy.get('a')
+        cy.get('a')  
             .eq(6)
             .should('have.text', 'Login')
 
-        cy.get('a.btn.btn-primary')
+        cy.get('a.btn-primary')
             .should('have.text', 'Cadastrar')
     })
 
@@ -37,7 +37,7 @@ describe('home page', () => {
             .should('have.text', 'Conectando QAs ...')
     })
 
-    it('Seleciona elementos com o next', () => {
+    it('seleciona elementos com o next', () => {
         
         cy.get('li')
             .eq(0)
